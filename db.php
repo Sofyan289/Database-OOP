@@ -1,6 +1,6 @@
 <?php 
 
-class Databasse {
+class Database {
     public $pdo;
 
     public function __construct($db = "test", $user="root", $pwd="", $host="localhost") {
