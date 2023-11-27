@@ -16,8 +16,16 @@ class Database {
     public function insertUser($username, $password) {
         $stmt = $this->pdo->prepare("insert into users (username, password) values(?, ?)");
         $stmt->execute([$username, $password]);
+    }       
+    public function selectUser($userID) {
+        if ($userID = NULL) {
+            $stmt = $this->pdo->query("SELECT * FROM users");
+            $result = $stmt->fetchAll();
+        } else $stmt = $this->pdo->prepare("SELECT * FROM users WHERE user_id = ?");
+        $stmt->execute([$userID]);
+        $result = $stmt->fetch();
+        return $result;
     }
-    
 }
 
 ?>
