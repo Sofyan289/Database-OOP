@@ -30,8 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </tr>
         <tr>
             <?php $users = $db->selectUser(4);?>
-
+            <td><?php echo $users["user_id"] ?></td>
+            <td><?php echo $users["username"] ?></td>
+            <td><?php echo $users["password"] ?></td>
         </tr>
+
     </table>
 
 
