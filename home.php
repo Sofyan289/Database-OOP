@@ -25,12 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <th>UserID</th>
             <th>Username</th>
             <th>Password</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <tr>
-            <?php $users = $db->selectUser(3);?>
-            <td><?php echo $users['user_id']; ?></td>
-            <td><?php echo $users['username']; ?></td>
-            <td><?php echo $users['password']; ?></td>
+            <?php $users = $db->selectUser(4);?>
+
         </tr>
     </table>
 

@@ -18,7 +18,7 @@ class Database {
         $stmt->execute([$username, $password]);
     }       
     public function selectUser($userID) {
-        if ($userID = NULL) {
+        if (empty($userID)) {
             $stmt = $this->pdo->query("SELECT * FROM users");
             $result = $stmt->fetchAll();
         } else $stmt = $this->pdo->prepare("SELECT * FROM users WHERE user_id = ?");
