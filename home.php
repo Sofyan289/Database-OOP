@@ -1,6 +1,15 @@
 <?php
 include 'db.php';
 $db = new Database();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    try {
+        $db->insertUser($_POST['username'], $_POST['password']);
+        echo "tooegevoegd";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +20,10 @@ $db = new Database();
     <title>Document</title>
 </head>
 <body>
-    <H1>Text</H1>
+    <form method="post">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit">
+    </form>
 </body>
 </html>
