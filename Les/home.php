@@ -5,7 +5,7 @@ $db = new Database();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         $db->insertUser($_POST['username'], $_POST['password']);
-        echo "tooegevoegd";
+        echo "toegevoegd";
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -25,15 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <th>UserID</th>
             <th>Username</th>
             <th>Password</th>
-            <th>Edit</th>
-            <th>Delete</th>
         </tr>
         <tr>
-            <?php $users = $db->selectUser(4);?>
-            <td><?php echo $users["user_id"] ?></td>
-            <td><?php echo $users["username"] ?></td>
-            <td><?php echo $users["password"] ?></td>
-        </tr>
+            <?php $users = $db->select();
+            foreach ($users as $user) {?>
+            <td><?php echo $user["user_id"] ?></td>
+            <td><?php echo $user["username"] ?></td>
+            <td><?php echo $user["password"] ?></td>
+            <td><button type="button" class="btn btn-light"><a href="edit.php?user_id=<?php echo $user['user_id']; ?>&username=<?php echo $user['username']?>">Edit</a></button></td>
+            <td><button type="button" class="btn btn-light"><a href="delete.php?user_id=<?php echo $user['user_id']; ?>">Delete</a></button></td>
+        </tr> <?php }?>
 
     </table>
 
