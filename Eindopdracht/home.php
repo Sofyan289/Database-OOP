@@ -24,18 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <table>
         <tr>
-            <th>UserID</th>
+            <th>ID</th>
             <th>Username</th>
             <th>Password</th>
         </tr>
         <tr>
             <?php $users = $db->select();
             foreach ($users as $user) {?>
-            <td><?php echo $user["user_id"] ?></td>
-            <td><?php echo $user["username"] ?></td>
-            <td><?php echo $user["password"] ?></td>
-            <td><button type="button" class="btn btn-light"><a href="edit.php?user_id=<?php echo $user['user_id']; ?>&username=<?php echo $user['username']?>">Edit</a></button></td>
-            <td><button type="button" class="btn btn-light"><a href="delete.php?user_id=<?php echo $user['user_id']; ?>">Delete</a></button></td>
+            <td><?php echo $user["ID"] ?></td>
+            <td><?php echo $user["gebruikersnaam"] ?></td>
+            <td><?php echo $user["wachtwoord"] ?></td>
+            <td><button type="button" class="btn btn-light"><a href="edit.php?ID=<?php echo $user['ID']; ?>&gebruikersnaam=<?php echo $user['gebruikersnaam']?>">Edit</a></button></td>
+            <td><button type="button" class="btn btn-light"><a href="delete.php?ID=<?php echo $user['ID']; ?>">Delete</a></button></td>
         </tr> <?php }?>
 
     </table>
