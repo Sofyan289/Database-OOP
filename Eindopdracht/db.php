@@ -41,6 +41,12 @@ class Database {
         $stmt = $this->pdo->prepare("INSERT INTO klanten (voornaam,achternaam,geboortedatum, gebruikersnaam,email,wachtwoord) values (?,?,?,?,?,?)");
         $stmt->execute([$voornaam, $achternaam, $geboortedatum, $gebruikersnaam, $email, $password]);
     }
+    public function login($email) {
+        $stmt = $this->pdo->prepare("SELECT * FROM klanten where email = ?");
+        $stmt->execute([$email]);
+        $result = $stmt->fetch();
+        return $result;
+    }
 
 }
 
