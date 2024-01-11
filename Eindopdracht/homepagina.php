@@ -8,6 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            margin: 0;
         }
 
         .header {
@@ -62,13 +63,14 @@
         <div class="card">
             <h2>Book a Car</h2>
             <p>Select from a variety of vehicles to suit your needs and preferences.</p>
-            <a href="#" class="button">Browse Vehicles</a>
+            <a href="store.php" class="button">Browse Vehicles</a>
         </div>
 
         <div class="card">
             <h2>Sign Up for Membership</h2>
             <p>Sign up for our loyalty program and enjoy exclusive benefits, such as priority booking and car upgrade.</p>
-            <a href="#" class="button">Join Now</a>
+            <a href="login.php" class="button">Login</a>
+            <a href="aanmelden.php" class="button">Join Now</a>
         </div>
     </div>
 </body>
