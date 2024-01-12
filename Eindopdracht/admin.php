@@ -11,7 +11,6 @@
     <div class="action-block" id="cars">
       <h2>Auto's</h2>
       <div class="actions">
-        <h2>ADMIN PANEL</h2>
         <button onclick="addEntry('cars')">Toevoegen</button>
         <button onclick="editEntry('cars')">Aanpassen</button>
         <button onclick="deleteEntry('cars')">Verwijderen</button>
