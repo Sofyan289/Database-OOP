@@ -4,32 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Admin Panel</title>
+  <title>Staff Panel</title>
 </head>
 <body>
-  <h2 class="panel-title">Admin Panel</h2>
-  <div class="admin-panel">
+  <h2 class="panel-title">Staff Panel</h2>
+  <div class="employee-panel">
     <div class="action-block" id="cars">
       <h2>Auto's</h2>
       <div class="actions">
-        <button onclick="addEntry('cars')">Toevoegen</button>
-        <button onclick="editEntry('cars')">Aanpassen</button>
-        <button onclick="deleteEntry('cars')">Verwijderen</button>
+        <button onclick="editEntry('cars')" class="center-button">Aanpassen</button>
       </div>
       <form>
         
-      </form>
-    </div>
-
-    <div class="action-block" id="staff">
-      <h2>Medewerkers</h2>
-      <div class="actions">
-        <button onclick="addEntry('staff')">Toevoegen</button>
-        <button onclick="editEntry('staff')">Aanpassen</button>
-        <button onclick="deleteEntry('staff')">Verwijderen</button>
-      </div>
-      <form>
-       
       </form>
     </div>
 
@@ -64,3 +50,4 @@
   </script>
 </body>
 </html>
+
