@@ -27,6 +27,17 @@ class Database {
     $result = $stmt->fetchAll();
     return $result;
     }
+    public function selectAuto($ID = null) {
+        if ($ID) {
+            $stmt = $this->pdo->prepare("SELECT * FROM autos WHERE autoID = ?");
+            $stmt->execute([$ID]);
+            $result = $stmt->fetch();
+            return $result;
+    } 
+    $stmt = $this->pdo->query("SELECT * FROM autos");
+    $result = $stmt->fetchAll();
+    return $result;
+    }
 
     public function editUser ($ID, $gebruikersnaam, $wachtwoord, $email) {
         $stmt = $this->pdo->prepare("UPDATE klanten SET username = ?, wachtwoord = ? , email = ?");

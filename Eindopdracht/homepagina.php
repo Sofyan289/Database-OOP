@@ -1,3 +1,8 @@
+<?php
+include 'db.php';
+$db = new Database();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +30,6 @@
     </div>
 
     <div class="content">
-        <!-- Verwijderde h2- en p-elementen -->
         <div id="carousel" class="carousel">
             <p id="carouselText">Welkom bij Carrental-24/7</p>
         </div>
