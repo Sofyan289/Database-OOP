@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+span {
+  color: #ff0000;
+}
+
+header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 40px; /* Hier kun je de waarde aanpassen voor de gewenste afstand naar rechts */
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background-color: #222222;
+  padding-top: 20px;
+  transition: left 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+}
+
+.nav-link {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-bottom: 1px solid #444;
+}
+
+.content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+      left: -250px;
+  }
+}
+
+/* Aangepaste stijlen voor de carrousel */
+#carousel {
+  margin-top: 50px; /* Pas de waarde naar wens aan */
+}
+
+#carouselText {
+  margin-top: 20px; /* Pas de waarde naar wens aan */
+  font-size: 24px; /* Pas de waarde naar wens aan */
+}
+
+/* Aangepaste stijlen voor de header divider */
+.header-divider {
+  border-bottom: 1px solid white; /* Pas de stijl aan naar wens */
+}
