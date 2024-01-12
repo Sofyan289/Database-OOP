@@ -5,78 +5,55 @@ $db = new Database();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rental Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-        }
-
-        .header {
-            background-color: #4caf50;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-size: 35px;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .card {
-            background-color: white;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h2 {
-            margin: 0;
-        }
-
-        .card p {
-            margin: 10px 0;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Autoverhuur24</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="header">
-        Car Rental Website
+
+    <header class="header-divider">
+        <h1>Carrental-<span>24/7</span></h1>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="closeMenu()"><span>Close</span></div>
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Cars</a>
+        <a href="#" class="nav-link">About-us</a>
+        <a href="#" class="nav-link">Sign-in</a>
+        <a href="#" class="nav-link">Log-out</a>
     </div>
 
-    <div class="container">
-        <div class="card">
-            <h2>Book a Car</h2>
-            <p>Select from a variety of vehicles to suit your needs and preferences.</p>
-            <a href="store.php" class="button">Browse Vehicles</a>
-        </div>
-
-        <div class="card">
-            <h2>Sign Up for Membership</h2>
-            <p>Sign up for our loyalty program and enjoy exclusive benefits, such as priority booking and car upgrade.</p>
-            <a href="login.php" class="button">Login</a>
-            <a href="aanmelden.php" class="button">Join Now</a>
+    <div class="content">
+        <!-- Verwijderde h2- en p-elementen -->
+        <div id="carousel" class="carousel">
+            <p id="carouselText">Welkom bij Carrental-24/7</p>
         </div>
     </div>
+
+    <script src="script.js"></script>
+    <script>
+        var carouselText = document.getElementById('carouselText');
+        var carouselIndex = 1;
+
+        function updateCarousel() {
+            if (carouselIndex === 1) {
+                carouselText.innerHTML = "Welkom bij Carrental-24/7";
+            } else if (carouselIndex === 2) {
+                carouselText.innerHTML = "Carrental-24/7: Vrijheid op wielen, altijd binnen handbereik!";
+            } else {
+                carouselText.innerHTML = "Ontdek de wereld op jouw voorwaarden met Carrental-24/7 - altijd klaar voor jouw volgende avontuur!";
+            }
+            carouselIndex = (carouselIndex % 3) + 1; // Wissel tussen 1, 2 en 3
+        }
+
+        setInterval(updateCarousel, 5000); // Wijzig elke 5 seconden
+    </script>
 </body>
+
 </html>
