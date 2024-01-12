@@ -43,7 +43,7 @@ try {
         <a href="" class="nav-link">Home</a>
         <a href="" class="nav-link">Cars</a>
         <a href="about-us.php" class="nav-link">About-us</a>
-        <a href="" class="nav-link">Sign-in</a>
+        <a href="login.php" class="nav-link">Sign-in</a>
         <a href="" class="nav-link">Log-out</a>
     </div>
 
