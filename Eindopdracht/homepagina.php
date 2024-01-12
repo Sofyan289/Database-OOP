@@ -38,7 +38,12 @@ try {
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </header>
 
+    
+
+
     <div class="sidebar" id="sidebar">
+        <button id="themeToggle" onclick="toggleTheme()">Toggle Theme</button>
+        <br>
         <div class="close-btn" onclick="closeMenu()"><span>Close</span></div>
         <a href="" class="nav-link">Home</a>
         <a href="store.php" class="nav-link">Cars</a>
@@ -66,7 +71,7 @@ try {
             } else {
                 carouselText.innerHTML = "Ontdek de wereld op jouw voorwaarden met Carrental-24/7 - altijd klaar voor jouw volgende avontuur!";
             }
-            carouselIndex = (carouselIndex % 3) + 1; // Wissel tussen 1, 2 en 3
+            carouselIndex = (carouselIndex % 3) + 1; 
         }
 
         setInterval(updateCarousel, 5000); 

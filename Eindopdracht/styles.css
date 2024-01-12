@@ -186,7 +186,19 @@ label {
   display: none;
 }
 
+/* light and dark mode toggl bottom*/
 
+/* Lichte modus standaardstijlen */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Donkere modus standaardstijlen */
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
 
 
 

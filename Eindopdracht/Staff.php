@@ -7,6 +7,7 @@
   <title>Staff Panel</title>
 </head>
 <body>
+
   <h2 class="panel-title">Staff Panel</h2>
   <div class="employee-panel">
     <div class="action-block" id="cars">
