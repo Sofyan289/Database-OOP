@@ -1,7 +1,25 @@
 <?php
 include 'db.php';
-$db = new Database();
+session_start();
 
+if (isset($_SESSION['userId'])) {
+    echo "Ingelogd als: " . $_SESSION['userId'];
+    echo "<br><a href=logout.php>Logout</a>";
+}
+
+
+try {
+   $db = new Database();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        // voer de functie insertUser uit en sla de return waarde op.
+        $insertId = $db->insertUser($_POST['email'], $hash);
+        // print de lastInsertId
+        echo "Successfully added " . $insertId;
+    }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
