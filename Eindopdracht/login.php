@@ -9,12 +9,12 @@
 
         if ($user) {
             $wachtwoord = $_POST['password'];
-            $verify = password_verify($wachtwoord, $user['wachtwoord']);
-            if ($user && $wachtwoord == $verify) {
+            // $verify = password_verify($wachtwoord, $user['wachtwoord']);
+            if ($user && $wachtwoord) {
                 session_start();
-                $_SESSION['userId'] = $user['id'];
-                $_SESSION['naam'] = $user['naam'];
-                $_SESSION['role'] = $user['role'];
+                $_SESSION['ID'] = $user['ID'];
+                $_SESSION['naam'] = $user['voornaam'];
+                $_SESSION['rol'] = $user['rol'];
                 header('Location:homepagina.php?ingelogd');
             } else {
                 echo "incorrect username or email";
@@ -50,7 +50,7 @@
     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
   <button type="submit" class="btn btn-primary">inloggen</button><br><br>
-  <button href="aanmelden.php" class="btn btn-secondary">Registreren?</button>
+  <a href="aanmelden.php" class="btn btn-secondary">Registreren?</a>
 </form>
 </body>
 </html>

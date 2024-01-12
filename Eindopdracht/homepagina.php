@@ -2,14 +2,13 @@
 include 'db.php';
 session_start();
 
-if (isset($_SESSION['userId'])) {
-    echo "Ingelogd als: " . $_SESSION['userId'];
+if (isset($_SESSION['ID'])) {
+    echo "Ingelogd als: " . $_SESSION['rol'];
     echo "<br><a href=logout.php>Logout</a>";
 }
 
-
 try {
-   $db = new Database();
+    $db = new Database();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
         // voer de functie insertUser uit en sla de return waarde op.
@@ -19,7 +18,7 @@ try {
     }
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
-  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,11 +39,24 @@ try {
 
     <div class="sidebar" id="sidebar">
         <div class="close-btn" onclick="closeMenu()"><span>Close</span></div>
-        <a href="" class="nav-link">Home</a>
-        <a href="" class="nav-link">Cars</a>
+        <a href="homepagina.php" class="nav-link">Home</a>
+        <a href="store.php" class="nav-link">Cars</a>
         <a href="about-us.php" class="nav-link">About-us</a>
-        <a href="" class="nav-link">Sign-in</a>
-        <a href="" class="nav-link">Log-out</a>
+        <?php if (empty($_SESSION['ID'])) {
+            echo '<a href="login.php" class="nav-link">Sign-in</a>';
+        };
+
+        if (isset($_SESSION['ID'])) {
+            echo '<a href="logout.php" class="nav-link">Log-out</a>';
+            if ($_SESSION['rol'] == 'medewerker') {
+                echo '<a href="klanten.php" class="nav-link">klantenlijst</a>';
+            }
+            if ($_SESSION['rol'] == 'admin') {
+                echo '<a href="admin.php" class="nav-link">admin panel</a>';
+            }
+        }
+     
+        ?>
     </div>
 
     <div class="content">
@@ -69,7 +81,7 @@ try {
             carouselIndex = (carouselIndex % 3) + 1; // Wissel tussen 1, 2 en 3
         }
 
-        setInterval(updateCarousel, 5000); 
+        setInterval(updateCarousel, 5000);
     </script>
 </body>
 
