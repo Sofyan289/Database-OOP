@@ -17,10 +17,10 @@
 
     <div class="sidebar" id="sidebar">
         <div class="close-btn" onclick="closeMenu()"><span>Close</span></div>
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="" class="nav-link">Cars</a>
-        <a href="about.html" class="nav-link">About Us</a>
-        <a href="" class="nav-link">Sign-in</a>
+        <a href="homepagina.php" class="nav-link">Home</a>
+        <a href="store.php" class="nav-link">Cars</a>
+        <a href="about-us.php" class="nav-link">About Us</a>
+        <a href="login.php" class="nav-link">Sign-in</a>
         <a href="" class="nav-link">Log-out</a>
     </div>
 

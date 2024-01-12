@@ -22,7 +22,7 @@ header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 40px; /* Hier kun je de waarde aanpassen voor de gewenste afstand naar rechts */
+  left: 40px; 
   cursor: pointer;
   color: white;
   font-size: 20px;
@@ -69,19 +69,19 @@ header {
   }
 }
 
-/* Aangepaste stijlen voor de carrousel */
+
 #carousel {
-  margin-top: 50px; /* Pas de waarde naar wens aan */
+  margin-top: 50px; 
 }
 
 #carouselText {
-  margin-top: 20px; /* Pas de waarde naar wens aan */
-  font-size: 24px; /* Pas de waarde naar wens aan */
+  margin-top: 20px; 
+  font-size: 24px; 
 }
 
-/* Aangepaste stijlen voor de header divider */
+
 .header-divider {
-  border-bottom: 1px solid white; /* Pas de stijl aan naar wens */
+  border-bottom: 1px solid white; 
 }
 img {
   width: 300px;
@@ -184,4 +184,135 @@ label {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+/* light and dark mode toggl bottom*/
+
+/* Lichte modus standaardstijlen */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Donkere modus standaardstijlen */
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+
+
+/*admin */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.panel-title {
+  color: #ffffff;
+}
+
+.admin-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action-block {
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff0000;
+}
+
+
+
+
+/* staff*/
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.panel-title {
+  color: #ffffff;
+}
+
+.employee-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action-block {
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.center-button {
+  margin: 0 auto; 
+}
+
+button {
+  padding: 10px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff0000;
 }
