@@ -37,11 +37,16 @@ class Database {
         $stmt = $this->pdo->prepare("DELETE FROM `klanten` WHERE ID = ?");
         $stmt->execute([$ID]);
     }
-    public function aanmelden($gebruikersnaam, $wachtwoord, $email, $voornaam, $achternaam, $geboortedatum) {
-        $stmt = $this->pdo->prepare("INSERT INTO klanten (gebruikersnaam,wachtwoord,email,voornaam,achternaam,geboortedatum) value (?,?,?,?,?,?)");
-        $stmt->execute([$gebruikersnaam, $wachtwoord, $email, $voornaam, $achternaam, $geboortedatum]);
-
-    } 
+    public function aanmelden($voornaam, $achternaam, $geboortedatum, $gebruikersnaam ,$email, $password) {
+        $stmt = $this->pdo->prepare("INSERT INTO klanten (voornaam,achternaam,geboortedatum, gebruikersnaam,email,wachtwoord) values (?,?,?,?,?,?)");
+        $stmt->execute([$voornaam, $achternaam, $geboortedatum, $gebruikersnaam, $email, $password]);
+    }
+    public function login($email) {
+        $stmt = $this->pdo->prepare("SELECT * FROM klanten where email = ?");
+        $stmt->execute([$email]);
+        $result = $stmt->fetch();
+        return $result;
+    }
 
 }
 
