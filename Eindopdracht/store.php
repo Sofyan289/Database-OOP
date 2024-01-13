@@ -35,7 +35,7 @@ $db = new Database();
             echo "<div id='auto-info'>Merk: {$auto[2]}</div>";
             echo "<div id='auto-info'>Model: {$auto[3]}</div>";
             echo "<div id='auto-info'>Bouwjaar: {$auto[4]}</div>";
-            echo "<div id='auto-info'><div class='background'></div><button id='reserveer-knop'><a href='reservering-maken.php?id=$auto[0]&&kenteken=$auto[5]'><h3>Reserveer</h3></a></button></div>";
+            echo "<div id='auto-info'><div class='background'></div><button id='reserveer-knop'><a href='login.php?id=$auto[0]&&kenteken=$auto[5]'><h3>Reserveer</h3></a></button></div>";
             echo "</div>";
         }
     }

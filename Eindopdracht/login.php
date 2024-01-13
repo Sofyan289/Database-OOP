@@ -9,8 +9,8 @@
 
         if ($user) {
             $wachtwoord = $_POST['password'];
-            // $verify = password_verify($wachtwoord, $user['wachtwoord']);
-            if ($user && $wachtwoord) {
+            $verify = password_verify($wachtwoord, $user['wachtwoord']);
+            if ($user && $wachtwoord == $verify) {
                 session_start();
                 $_SESSION['ID'] = $user['ID'];
                 $_SESSION['naam'] = $user['voornaam'];

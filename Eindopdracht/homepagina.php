@@ -54,7 +54,7 @@ try {
         if (isset($_SESSION['ID'])) {
             echo '<a href="logout.php" class="nav-link">Log-out</a>';
             if ($_SESSION['rol'] == 'medewerker') {
-                echo '<a href="klanten.php" class="nav-link">klantenlijst</a>';
+                echo '<a href="staff.php" class="nav-link">klantenlijst</a>';
             }
             if ($_SESSION['rol'] == 'admin') {
                 echo '<a href="admin.php" class="nav-link">admin panel</a>';
