@@ -44,11 +44,6 @@
 
 
 
-
-
-
-
-
 <h1 class="panel-title">Admin Panel</h1>
 <h2 class="panel-title">Users</h2>
   <table >
@@ -109,9 +104,9 @@
            <td><a href="delete-cars.php?id=<?php echo $auto['autoID']; ?>">Delete</a></td>
         </tr> <?php } }?>
     </table>
-
-
-
+d
+    <button id="addUserButton">Add User</button>
+    <button id="addCarButton">Add Car</button>
 
 </body>
 </html>
