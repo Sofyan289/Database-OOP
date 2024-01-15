@@ -18,6 +18,7 @@ header {
     text-align: center;
     padding: 10px;
     position: relative;
+    margin: 0;
 }
 
 .menu-toggle {
@@ -79,3 +80,70 @@ header {
     margin-top: 20px;
     font-size: 24px;
 }
+
+
+
+
+
+/* css-code voor footer*/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+footer {
+    position: fixed; 
+    bottom: 0;
+    background-color: #131313;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%; 
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content p {
+    margin: 0;
+} 
+
+
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.contact-info, .social-media {
+    flex: 1; 
+}
+
+.social-media img {
+    margin-right: 10px; 
+}
+
+.social-row {
+    display: flex;
+}
+
+.social-row img {
+    margin-right: 35px; 
+}
+
+
+
+
+
+
+
