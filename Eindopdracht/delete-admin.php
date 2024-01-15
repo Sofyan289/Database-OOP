@@ -2,14 +2,14 @@
 
 include 'db.php';
 $db = new Database();
-if (isset($_GET['ID'])) {
+if (isset($_GET['id'])) {
     try {
-        $db->deleteUser($_GET['ID']);
-        header("Location:home.php?Succes");
+        $db->deleteUser($_GET['id']);
+        header("Location:admin.php?Succes");
     } catch (\Exception $e) {
         echo "Error: " . $e->getMessage();
     }
 } else {
-    header("Location:home.php");
+    header("Location:admin.php");
 }
 ?>

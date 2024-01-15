@@ -15,7 +15,7 @@
                 $_SESSION['ID'] = $user['ID'];
                 $_SESSION['naam'] = $user['voornaam'];
                 $_SESSION['rol'] = $user['rol'];
-                header('Location:homepagina.php?ingelogd');
+                header('Location:homepage.php?ingelogd');
             } else {
                 echo "incorrect username or email";
             }

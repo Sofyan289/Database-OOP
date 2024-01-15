@@ -1,57 +1,50 @@
 <?php
-
+  include 'db.php';
+  session_start();
+  $db = new Database();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Staff Panel</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Admin Panel</title>
 </head>
 <body>
+<h1 class="panel-title">Admin Panel</h1>
+<h2 class="panel-title">Users</h2>
+  <table >
+        <tr>
+            <th>id</th>
+            <th>voornaam</th>
+            <th>achternaam</th>
+            <th>email</th>
+            <th>wachtwoord</th>
+            <th>geboortedatum</th>
+            <th>gebruikersnaam</th>
+            <th>rol</th>
+            <th colspan="2">Action</th>
+        </tr>
 
-  <h2 class="panel-title">Staff Panel</h2>
-  <div class="employee-panel">
-    <div class="action-block" id="cars">
-      <h2>Auto's</h2>
-      <div class="actions">
-        <button onclick="editEntry('cars')" class="center-button">Aanpassen</button>
-      </div>
-      <form>
+        <tr> <?php
+            $users = $db->select(); 
+            if ($users) { 
+                foreach ($users as $user) {?>
+            <td><?php echo $user['ID'];?></td>
+            <td><?php echo $user['voornaam']?></td>
+            <td><?php echo $user['achternaam']?></td>
+            <td><?php echo $user['email']?></td>
+            <td><?php echo $user['wachtwoord']?></td>
+            <td><?php echo $user['geboortedatum']?></td>
+            <td><?php echo $user['gebruikersnaam']?></td>
+            <td><?php echo $user['rol']?></td>
+           <td><a href="edit.php?id=<?php echo $user['ID']; ?>">Edit</a></td>
+           <td><a href="delete.php?id=<?php echo $user['ID']; ?>">Delete</a></td>
+           <td></td>
+        </tr> <?php } }?>
         
-      </form>
-    </div>
+    </table>
 
-    <div class="action-block" id="customers">
-      <h2>Klanten</h2>
-      <div class="actions">
-        <button onclick="addEntry('customers')">Toevoegen</button>
-        <button onclick="editEntry('customers')">Aanpassen</button>
-        <button onclick="deleteEntry('customers')">Verwijderen</button>
-      </div>
-      <form>
-        
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function addEntry(category) {
-      
-      console.log('Adding entry for ' + category);
-    }
-
-    function editEntry(category) {
-      
-      console.log('Editing entry for ' + category);
-    }
-
-    function deleteEntry(category) {
-      
-      console.log('Deleting entry for ' + category);
-    }
-  </script>
 </body>
 </html>
-

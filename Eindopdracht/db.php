@@ -2,6 +2,8 @@
 
 class Database {
     public $pdo;
+    private string $klanten = "klanten";
+    private string $autos = "autos";
 
     public function __construct($db = "Autoverhuur", $user="root", $pwd="", $host="localhost") {
         try {
@@ -62,6 +64,22 @@ class Database {
         $result = $stmt->fetch();
         return $result;
     }
+    public function updateUserAdmin($voornaam, $achternaam, $email, $wachtwoord, $geboortedatum, $gebruikersnaam , $rol, $id) {
+        $stmt = $this->pdo->prepare("UPDATE $this->klanten SET voornaam = ?, achternaam = ?,
+        email = ?, wachtwoord = ?, geboortedatum = ?, gebruikersnaam = ?, rol = ? WHERE id = ?");
+        $stmt->execute([$voornaam, $achternaam, $email, $wachtwoord ,$geboortedatum, $gebruikersnaam, $rol, $id]);
+    }
+    public function updateUser($voornaam, $achternaam, $email, $wachtwoord, $geboortedatum, $gebruikersnaam , $id) {
+        $stmt = $this->pdo->prepare("UPDATE $this->klanten SET voornaam = ?, achternaam = ?,
+        email = ?, wachtwoord = ?, geboortedatum = ?, gebruikersnaam = ? WHERE id = ?");
+        $stmt->execute([$voornaam, $achternaam, $email, $wachtwoord ,$geboortedatum, $gebruikersnaam, $id]);
+    }
+    public function updateAutos($autonaam, $automerk, $bouwjaar, $kenteken, $autofoto, $autoid) {
+        $stmt = $this->pdo->prepare("UPDATE $this->autos SET autonaam = ?, automerk = ?,
+        bouwjaar = ?, kenteken = ?, autofoto = ? WHERE autoid = ?");
+        $stmt->execute([$autonaam, $automerk, $bouwjaar, $kenteken ,$autofoto, $autoid]);
+    }
+
 
 }
 

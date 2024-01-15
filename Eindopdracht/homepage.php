@@ -1,3 +1,24 @@
+<?php
+include 'db.php';
+session_start();
+
+if (isset($_SESSION['ID'])) {
+    echo "Ingelogd als: " . $_SESSION['rol'];
+}
+
+try {
+    $db = new Database();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        // voer de functie insertUser uit en sla de return waarde op.
+        $insertId = $db->insertUser($_POST['email'], $hash);
+        // print de lastInsertId
+        echo "Successfully added " . $insertId;
+    }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +41,21 @@
         <a href="#" class="nav-link">Home</a>
         <a href="#" class="nav-link">Cars</a>
         <a href="#" class="nav-link">About-us</a>
-        <a href="#" class="nav-link">Sign-in</a>
-        <a href="#" class="nav-link">Log-out</a>
+        <?php if (empty($_SESSION['ID'])) {
+            echo '<a href="login.php" class="nav-link">Sign-in</a>';
+        };
+
+        if (isset($_SESSION['ID'])) {
+            echo '<a href="logout.php" class="nav-link">Log-out</a>';
+            if ($_SESSION['rol'] == 'medewerker') {
+                echo '<a href="staff.php" class="nav-link">klantenlijst</a>';
+            }
+            if ($_SESSION['rol'] == 'admin') {
+                echo '<a href="admin.php" class="nav-link">admin panel</a>';
+            }
+        }
+     
+        ?>
     </div>
 
     <div class="content">
