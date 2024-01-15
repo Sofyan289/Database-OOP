@@ -54,10 +54,11 @@ class Database {
         $stmt = $this->pdo->prepare("DELETE FROM `autos` WHERE autoid = ?");
         $stmt->execute([$autoid]);
     }
-    public function aanmelden($voornaam, $achternaam, $geboortedatum, $gebruikersnaam ,$email, $password) {
-        $stmt = $this->pdo->prepare("INSERT INTO klanten (voornaam,achternaam,geboortedatum, gebruikersnaam,email,wachtwoord) values (?,?,?,?,?,?)");
-        $stmt->execute([$voornaam, $achternaam, $geboortedatum, $gebruikersnaam, $email, $password]);
+    public function aanmelden($voornaam, $achternaam, $geboortedatum, $gebruikersnaam ,$email, $password, $rol) {
+        $stmt = $this->pdo->prepare("INSERT INTO klanten (voornaam,achternaam,geboortedatum, gebruikersnaam,email,wachtwoord, rol) values (?,?,?,?,?,?,?)");
+        $stmt->execute([$voornaam, $achternaam, $geboortedatum, $gebruikersnaam, $email, $password, $rol]);
     }
+    
     public function aanmeldenAdmin($voornaam, $achternaam, $geboortedatum, $gebruikersnaam ,$email, $password, $rol) {
         $stmt = $this->pdo->prepare("INSERT INTO klanten (voornaam,achternaam,geboortedatum, gebruikersnaam,email,wachtwoord,rol) values (?,?,?,?,?,?,?)");
         $stmt->execute([$voornaam, $achternaam, $geboortedatum, $gebruikersnaam, $email, $password, $rol]);

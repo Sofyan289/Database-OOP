@@ -39,12 +39,15 @@
             <td><?php echo $user['geboortedatum']?></td>
             <td><?php echo $user['gebruikersnaam']?></td>
             <td><?php echo $user['rol']?></td>
-           <td><a href="edit.php?id=<?php echo $user['ID']; ?>">Edit</a></td>
-           <td><a href="delete.php?id=<?php echo $user['ID']; ?>">Delete</a></td>
+           <td><a href="edit-staff.php?id=<?php echo $user['ID']; ?>">Edit</a></td>
+           <td><a href="delete-staff.php?id=<?php echo $user['ID']; ?>">Delete</a></td>
            <td></td>
         </tr> <?php } }?>
-        
     </table>
+
+    <a href="aanmelden-staff.php">
+        <button id="addUserButton">Add User</button>
+    </a>
 
 </body>
 </html>

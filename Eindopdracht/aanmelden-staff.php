@@ -5,17 +5,16 @@ try {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $db = new Database();
         $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $rol = 'klant';
-        $db->aanmelden(
+        $db->aanmeldenAdmin(
             $_POST['voornaam'],
             $_POST['achternaam'],
             $_POST['geboortedatum'],
             $_POST['gebruikersnaam'],
             $_POST['email'],
             $hash,
-            $rol
+            $_POST['rol']
         );
-        header("Location:login.php?accountAangemaakt");
+        header("Location:admin.php?accountAangemaakt");
     }
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
@@ -54,6 +53,12 @@ try {
             </div>
             <div class="mb-3">
                 <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="mb-3">
+                <input type="radio" id="rol" name="rol" value="klant">
+                <label for="rol">klant</label><br>
+                <input type="radio" id="rol" name="rol" value="medewerker">
+                <label for="rol">medewerker</label><br>
             </div>
             <input type="submit" class="btn btn-primary">
         </form>
