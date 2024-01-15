@@ -78,10 +78,10 @@ class Database {
         email = ?, wachtwoord = ?, geboortedatum = ?, gebruikersnaam = ? WHERE id = ?");
         $stmt->execute([$voornaam, $achternaam, $email, $wachtwoord ,$geboortedatum, $gebruikersnaam, $id]);
     }
-    public function updateAutos($autonaam, $automerk, $bouwjaar, $kenteken, $autofoto, $id) {
-        $stmt = $this->pdo->prepare("UPDATE $this->autos SET autonaam = ?, automerk = ?,
-        bouwjaar = ?, kenteken = ?, autofoto = ? WHERE autoid = ?");
-        $stmt->execute([$autonaam, $automerk, $bouwjaar, $kenteken ,$autofoto, $id]);
+    public function updateAutos($autonaam, $automerk, $automodel, $bouwjaar, $kenteken, $autofoto, $id) {
+        $stmt = $this->pdo->prepare("UPDATE $this->autos SET autoNaam = ?, autoMerk = ?,
+        autoModel = ?, bouwjaar = ?, kenteken = ?, autoFoto = ? WHERE autoID = ?");
+        $stmt->execute([$autonaam, $automerk, $automodel, $bouwjaar, $kenteken ,$autofoto, $id]);
     }
 
 
