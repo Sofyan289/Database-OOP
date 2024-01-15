@@ -5,7 +5,7 @@ try {
     $db = new Database();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $db->updateUserAdmin(
-            $_POST['autonaam'],
+            $_POST['voornaam'],
             $_POST['achternaam'],
             $_POST['email'],
             $hash,
@@ -31,14 +31,29 @@ try {
 </head>
 
 <body>
-    <form method="POST">
-        <input type="text" name="autonaam" placeholder="autonaam"> <br>
-        <input type="text" name="automerk" placeholder="automerk"> <br>
-        <input type="text" name="automodel" placeholder="automodel"> <br>
-        <input type="number" name="bouwjaar" placeholder="bouwjaar"> <br>
-        <input type="text" name="kenteken" placeholder="kenteken"> <br>
-        <input type="text" name="autofoto" placeholder="autofoto"> <br>
-        <input type="submit">
+<div class="mb-3">
+                <input type="text" name="voornaam" placeholder="Naam" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="achternaam" placeholder="Achternaam" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="gebruikersnaam" placeholder="Gebruikersnaam" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="mb-3">
+                <input type="radio" id="rol" name="rol" value="klant">
+                <label for="rol">klant</label><br>
+                <input type="radio" id="rol" name="rol" value="medewerker">
+                <label for="rol">medewerker</label><br>
+                <input type="radio" id="rol" name="rol" value="admin">
+                <label for="rol">admin</label>
+            </div>
     </form>
 </body>
 
