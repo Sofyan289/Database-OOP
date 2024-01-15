@@ -20,7 +20,7 @@
 
     <div class="sidebar" id="sidebar">
         <div class="close-btn" onclick="closeMenu()"><span>Close</span></div>
-        <a href="#" class="nav-link">Home</a>
+        <a href="homepage.php" class="nav-link">Home</a>
         <a href="#" class="nav-link">Cars</a>
         <a href="#" class="nav-link">About-us</a>
         <?php if (empty($_SESSION['ID'])) {
@@ -40,7 +40,7 @@
         ?>
     </div>
 
-
+    <script src="script.js"></script>
 
 
 
