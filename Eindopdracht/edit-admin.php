@@ -4,6 +4,7 @@ include 'db.php';
 try {
     $db = new Database();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $db->updateUserAdmin(
             $_POST['voornaam'],
             $_POST['achternaam'],
@@ -31,29 +32,35 @@ try {
 </head>
 
 <body>
-<div class="mb-3">
-                <input type="text" name="voornaam" placeholder="Naam" required>
-            </div>
-            <div class="mb-3">
-                <input type="text" name="achternaam" placeholder="Achternaam" required>
-            </div>
-            <div class="mb-3">
-                <input type="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <input type="text" name="gebruikersnaam" placeholder="Gebruikersnaam" required>
-            </div>
-            <div class="mb-3">
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="mb-3">
-                <input type="radio" id="rol" name="rol" value="klant">
-                <label for="rol">klant</label><br>
-                <input type="radio" id="rol" name="rol" value="medewerker">
-                <label for="rol">medewerker</label><br>
-                <input type="radio" id="rol" name="rol" value="admin">
-                <label for="rol">admin</label>
-            </div>
+    <form method="POST">
+        <div class="mb-3">
+            <input type="text" name="voornaam" placeholder="Naam" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="achternaam" placeholder="Achternaam" required>
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" placeholder="email" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="mb-3">
+            <input type="date" name="geboortedatum" placeholder="geboortedatum" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="gebruikersnaam" placeholder="gebruikersnaam" required>
+        </div>
+
+        <div class="mb-3">
+            <input type="radio" id="rol" name="rol" value="klant">
+            <label for="rol">klant</label><br>
+            <input type="radio" id="rol" name="rol" value="medewerker">
+            <label for="rol">medewerker</label><br>
+            <input type="radio" id="rol" name="rol" value="admin">
+            <label for="rol">admin</label>
+        </div>
+        <input type="submit" class="btn btn-primary">
     </form>
 </body>
 

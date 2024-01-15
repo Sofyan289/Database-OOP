@@ -4,14 +4,14 @@ include 'db.php';
 try {
     $db = new Database();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $db->updateUserAdmin(
-            $_POST['autonaam'],
+        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $db->updateUser(
+            $_POST['voornaam'],
             $_POST['achternaam'],
             $_POST['email'],
             $hash,
             $_POST['geboortedatum'],
             $_POST['gebruikersnaam'],
-            $_POST['rol'],
             $_GET['id']
         );
         header("Location:admin.php");
@@ -32,13 +32,25 @@ try {
 
 <body>
     <form method="POST">
-        <input type="text" name="autonaam" placeholder="autonaam"> <br>
-        <input type="text" name="automerk" placeholder="automerk"> <br>
-        <input type="text" name="automodel" placeholder="automodel"> <br>
-        <input type="number" name="bouwjaar" placeholder="bouwjaar"> <br>
-        <input type="text" name="kenteken" placeholder="kenteken"> <br>
-        <input type="text" name="autofoto" placeholder="autofoto"> <br>
-        <input type="submit">
+        <div class="mb-3">
+            <input type="text" name="voornaam" placeholder="Naam" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="achternaam" placeholder="Achternaam" required>
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" placeholder="email" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="mb-3">
+            <input type="date" name="geboortedatum" placeholder="geboortedatum" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="gebruikersnaam" placeholder="gebruikersnaam" required>
+        </div>
+        <input type="submit" class="btn btn-primary">
     </form>
 </body>
 

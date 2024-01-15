@@ -116,6 +116,9 @@ $db = new Database();
     <a href="aanmelden-auto.php">
         <button id="addCarButton">Add Car</button>
     </a>
+    <a href="aanmelden-autofoto.php">
+        <button id="addCarButton">Add Car/image</button>
+    </a>
 
 </body>
 

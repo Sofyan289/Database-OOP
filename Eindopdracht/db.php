@@ -40,7 +40,10 @@ class Database {
     $result = $stmt->fetchAll();
     return $result;
     }
-
+    public function upload($file) {
+        $stmt = $this->pdo->prepare("INSERT INTO autos values (?)");
+        $stmt->execute([$file]);
+    }
     public function editUser ($ID, $gebruikersnaam, $wachtwoord, $email) {
         $stmt = $this->pdo->prepare("UPDATE klanten SET username = ?, wachtwoord = ? , email = ?");
         $wachtwoord = password_hash($wachtwoord, PASSWORD_DEFAULT);
