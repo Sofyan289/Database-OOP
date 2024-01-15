@@ -50,6 +50,10 @@ class Database {
         $stmt = $this->pdo->prepare("DELETE FROM `klanten` WHERE ID = ?");
         $stmt->execute([$ID]);
     }
+    public function deleteCar ($autoid) {
+        $stmt = $this->pdo->prepare("DELETE FROM `autos` WHERE autoid = ?");
+        $stmt->execute([$autoid]);
+    }
     public function aanmelden($voornaam, $achternaam, $geboortedatum, $gebruikersnaam ,$email, $password) {
         $stmt = $this->pdo->prepare("INSERT INTO klanten (voornaam,achternaam,geboortedatum, gebruikersnaam,email,wachtwoord) values (?,?,?,?,?,?)");
         $stmt->execute([$voornaam, $achternaam, $geboortedatum, $gebruikersnaam, $email, $password]);
@@ -74,10 +78,10 @@ class Database {
         email = ?, wachtwoord = ?, geboortedatum = ?, gebruikersnaam = ? WHERE id = ?");
         $stmt->execute([$voornaam, $achternaam, $email, $wachtwoord ,$geboortedatum, $gebruikersnaam, $id]);
     }
-    public function updateAutos($autonaam, $automerk, $bouwjaar, $kenteken, $autofoto, $autoid) {
+    public function updateAutos($autonaam, $automerk, $bouwjaar, $kenteken, $autofoto, $id) {
         $stmt = $this->pdo->prepare("UPDATE $this->autos SET autonaam = ?, automerk = ?,
         bouwjaar = ?, kenteken = ?, autofoto = ? WHERE autoid = ?");
-        $stmt->execute([$autonaam, $automerk, $bouwjaar, $kenteken ,$autofoto, $autoid]);
+        $stmt->execute([$autonaam, $automerk, $bouwjaar, $kenteken ,$autofoto, $id]);
     }
 
 
