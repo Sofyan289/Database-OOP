@@ -20,18 +20,5 @@ function toggleMenu() {
   }
    
 
-function toggleTheme() {
-  var body = document.body;
-
-  var lightMode = body.classList.contains('light-mode');
-
-  if (lightMode) {
-      body.classList.remove('light-mode');
-      body.classList.add('dark-mode');
-  } else {
-      body.classList.remove('dark-mode');
-      body.classList.add('light-mode');
-  }
-}
 
   

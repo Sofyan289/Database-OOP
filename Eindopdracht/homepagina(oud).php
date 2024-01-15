@@ -38,11 +38,7 @@ try {
     </header>
 
     
-
-
     <div class="sidebar" id="sidebar">
-        <button id="themeToggle" onclick="toggleTheme()">Toggle Theme</button>
-        <br>
         <div class="close-btn" onclick="closeMenu()"><span>Close</span></div>
         <a href="homepagina.php" class="nav-link">Home</a>
         <a href="store.php" class="nav-link">Cars</a>
