@@ -1,5 +1,12 @@
 <?php
 include 'db.php';
+
+
+
+
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new Database();
 
@@ -10,9 +17,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (in_array($fileExtension, $allowedTypes)) {
             $name = $_FILES['file']['name'];
             $targetFilePath = "images/" . $name;
+            try {
+                $db->aanmeldenAuto(
+                    $_POST['autoNaam'],
+                    $_POST['autoMerk'],
+                    $_POST['autoModel'],
+                    $_POST['bouwjaar'],
+                    $_POST['kenteken'],
+                    $targetFilePath
+                );
+            } catch (\Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
 
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
-                $db->upload($name);
             } else {
                 echo "Er is een probleem opgetreden bij het verplaatsen van het bestand.";
             }
@@ -27,15 +45,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="file">
+        <div class="mb-3">
+            <input type="text" name="autoNaam" placeholder="autoNaam" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="autoMerk" placeholder="autoMerk" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="autoModel" placeholder="autoModel" required>
+        </div>
+        <div class="mb-3">
+            <input type="number" name="bouwjaar" placeholder="bouwjaar" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="kenteken" placeholder="kenteken" required>
+        </div>
+
+        <input type="file" name="file"><br><br>
         <input type="submit">
     </form>
+
+    <a href="admin.php"> <button>Terug</button>
+    </a>
 </body>
+
 </html>

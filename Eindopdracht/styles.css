@@ -162,7 +162,7 @@ img {
     width: 100%;
     flex-wrap: wrap;
     align-items: flex-end;
-    background-color: #0B3954;
+    background-color: black;
     height: 50%;
 }
 
@@ -213,7 +213,7 @@ a {
 
 #titel {
     display: flex;
-    height: 30px;
+    height: 50px;
 }
 
 .filter-individu {
